@@ -43,7 +43,3 @@ The app features a Valentine’s Day countdown, a fun relationship quiz, a perso
 - Local Storage
 - Wouter
 
----
-
-## 📁 Project Structure
-
