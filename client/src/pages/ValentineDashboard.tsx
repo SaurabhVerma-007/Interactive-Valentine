@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Mail, Camera, Trophy } from "lucide-react";
 import { KawaiiButton } from "@/components/KawaiiButton";
 import { cn } from "@/lib/utils";
-import memory1 from "@/assets/memories/photo1.jpg";
-import memory2 from "@/assets/memories/photo2.jpg";
-import memory3 from "@/assets/memories/photo3.jpg";
+import memory1 from "@/assets/memories/photo1.jpeg";
+import memory2 from "@/assets/memories/photo2.jpeg";
+
 
 
 const QUIZ_STATE_KEY = "valentine_quiz_state";
@@ -449,10 +449,6 @@ function PhotoGalleryCard() {
     {
       url: memory2,
       caption: "Love letters 💌",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=500",
-      caption: "Forever & Always 🌸",
     },
   ];
 
