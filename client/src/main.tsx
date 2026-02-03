@@ -1,13 +1,16 @@
 import React from "react";
-import "./index.css";
 import ReactDOM from "react-dom/client";
 import { Router } from "wouter";
 import App from "./App";
+import "./index.css";
+import { MusicProvider } from "./context/MusicContext";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <Router base="/Interactive-Valentine">
-      <App />
-    </Router>
+    <MusicProvider>
+      <Router base="/Interactive-Valentine">
+        <App />
+      </Router>
+    </MusicProvider>
   </React.StrictMode>
 );
