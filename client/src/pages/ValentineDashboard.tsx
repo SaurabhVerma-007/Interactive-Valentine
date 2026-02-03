@@ -1,8 +1,12 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Mail, Camera, Trophy } from "lucide-react";
 import { KawaiiButton } from "@/components/KawaiiButton";
 import { cn } from "@/lib/utils";
+import memory1 from "@/assets/memories/photo1.jpg";
+import memory2 from "@/assets/memories/photo2.jpg";
+import memory3 from "@/assets/memories/photo3.jpg";
+
 
 const QUIZ_STATE_KEY = "valentine_quiz_state";
 
@@ -213,44 +217,45 @@ function QuizCard() {
     },
   ], []);
 
-  const [currentQuestion, setCurrentQuestion] = useState(() => {
-    const saved = localStorage.getItem(QUIZ_STATE_KEY);
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        return parsed.currentQuestion || 0;
-      } catch (e) {
-        return 0;
-      }
+  const [currentQuestion, setCurrentQuestion] = useState<number>(() => {
+  const saved = localStorage.getItem(QUIZ_STATE_KEY);
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      return parsed.currentQuestion ?? 0;
+    } catch {
+      return 0;
     }
-    return 0;
-  });
+  }
+  return 0;
+});
   
-  const [score, setScore] = useState(() => {
-    const saved = localStorage.getItem(QUIZ_STATE_KEY);
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        return parsed.score || 0;
-      } catch (e) {
-        return 0;
-      }
+ const [score, setScore] = useState<number>(() => {
+  const saved = localStorage.getItem(QUIZ_STATE_KEY);
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      return parsed.score ?? 0;
+    } catch {
+      return 0;
     }
-    return 0;
-  });
+  }
+  return 0;
+});
 
-  const [showResult, setShowResult] = useState(() => {
-    const saved = localStorage.getItem(QUIZ_STATE_KEY);
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        return parsed.showResult || false;
-      } catch (e) {
-        return false;
-      }
+
+  const [showResult, setShowResult] = useState<boolean>(() => {
+  const saved = localStorage.getItem(QUIZ_STATE_KEY);
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      return parsed.showResult ?? false;
+    } catch {
+      return false;
     }
-    return false;
-  });
+  }
+  return false;
+});
 
   const [answered, setAnswered] = useState<string | null>(null);
 
@@ -438,20 +443,20 @@ function LetterCard() {
 function PhotoGalleryCard() {
   const photos = [
     {
-      url: "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=500",
-      caption: "My heart is yours",
+      url: memory1,
+      caption: "My heart is yours 💖",
     },
     {
-      url: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=500",
-      caption: "Love letters",
+      url: memory2,
+      caption: "Love letters 💌",
     },
     {
-      url: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=500",
-      caption: "Forever & Always",
+      url: memory3,
+      caption: "Forever & Always 🌸",
     },
   ];
 
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState<number>(0);
 
   return (
     <motion.div
@@ -463,45 +468,73 @@ function PhotoGalleryCard() {
       <div className="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4 text-blue-500 shadow-sm">
         <Camera size={24} />
       </div>
-      <h3 className="text-2xl font-bold text-gray-800 mb-2">Our Memories</h3>
-      <p className="text-gray-500 mb-6 font-handwriting">Snapshots of us 📸</p>
 
-      <div className="relative flex-1 rounded-2xl overflow-hidden bg-gray-100 shadow-inner group min-h-[250px]">
+      <h3 className="text-2xl font-bold text-gray-800 mb-2">
+        Our Memories
+      </h3>
+      <p className="text-gray-500 mb-6 font-handwriting">
+        Snapshots of us 📸
+      </p>
+
+      {/* Image Container */}
+      <div className="relative flex-1 rounded-2xl overflow-hidden shadow-inner min-h-[260px] bg-black">
+        {/* Blurred Background */}
         <AnimatePresence mode="wait">
           <motion.img
-            key={index}
+            key={`bg-${index}`}
             src={photos[index].url}
-            alt="Memory"
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
+            alt="Background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0 w-full h-full object-cover"
+            transition={{ duration: 0.6 }}
+            className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110"
           />
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
-          <p className="text-white font-handwriting text-lg">
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
+
+        {/* Foreground Image */}
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={`fg-${index}`}
+            src={photos[index].url}
+            alt="Memory"
+            initial={{ opacity: 0, scale: 1.25 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative z-10 mx-auto max-h-full max-w-full object-contain"
+          />
+        </AnimatePresence>
+
+        {/* Caption */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 p-4 bg-gradient-to-t from-black/60 to-transparent">
+          <p className="text-white font-handwriting text-lg text-center">
             {photos[index].caption}
           </p>
         </div>
 
-        {/* Navigation Dots */}
-        <div className="absolute top-4 right-4 flex gap-1">
+        {/* Dots */}
+        <div className="absolute top-4 right-4 z-20 flex gap-1">
           {photos.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
               className={cn(
-                "w-2 h-2 rounded-full transition-all shadow-sm",
-                i === index ? "bg-white w-6" : "bg-white/50 hover:bg-white",
+                "h-2 rounded-full transition-all",
+                i === index
+                  ? "w-6 bg-white"
+                  : "w-2 bg-white/50 hover:bg-white"
               )}
             />
           ))}
         </div>
       </div>
 
-      <div className="flex gap-2 mt-4 justify-between">
+      {/* Navigation Buttons */}
+      <div className="flex justify-between gap-2 mt-4">
         <KawaiiButton
           variant="secondary"
           size="sm"
@@ -511,10 +544,13 @@ function PhotoGalleryCard() {
         >
           Previous
         </KawaiiButton>
+
         <KawaiiButton
           variant="secondary"
           size="sm"
-          onClick={() => setIndex((prev) => (prev + 1) % photos.length)}
+          onClick={() =>
+            setIndex((prev) => (prev + 1) % photos.length)
+          }
         >
           Next
         </KawaiiButton>
@@ -522,3 +558,4 @@ function PhotoGalleryCard() {
     </motion.div>
   );
 }
+
