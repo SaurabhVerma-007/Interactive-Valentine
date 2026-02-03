@@ -13,7 +13,7 @@ export default defineConfig({
     },
   },
 
-  base: "/saurabhverma-007-interactive-valentine/",
+  base: "/Interactive-Valentine/",
 
   build: {
     outDir: "../dist",
