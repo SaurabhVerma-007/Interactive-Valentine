@@ -1,45 +1,57 @@
-# 💖 Valentine’s Relationship Web App
+# 💖 Interactive Valentine – Relationship Web App
 
-A cute and interactive **frontend-only web application** designed to celebrate relationships.  
-The app features a Valentine’s Day countdown, a fun relationship quiz, a personalized love letter, and a photo gallery — all wrapped in a soft, romantic UI.
+A cute, interactive, and romantic **frontend-only web application** built to celebrate love 💌  
+The app features a playful proposal page, floating emojis, confetti animations, a Valentine dashboard, and background music that starts when the user accepts the proposal.
 
-> ⚡ This project is **100% frontend-only** and fully compatible with **GitHub Pages** and other static hosting platforms.
+🎶 **Special touch:** Background music begins **only when “YES 💖” is clicked** and continues playing across all pages.
 
 ---
 
 ## ✨ Features
 
-- ⏳ **Valentine’s Day Countdown**  
-  Real-time countdown timer to February 14.
+- 💍 **Interactive Proposal Page**
+  - “Will you be my Valentine?” prompt
+  - Playful NO button that escapes 😄
+  - Confetti celebration on YES
 
-- 💌 **Personalized Love Letter**  
-  Displays a heartfelt message using local state.
+- 🎵 **Background Music**
+  - Music starts **only after user clicks YES 💖**
+  - Continues playing across all pages
+  - Browser-safe (no autoplay blocking)
 
-- 🧠 **Interactive Relationship Quiz**  
-  Cute questions with score tracking and progress persistence.
+- 🌸 **Animated UI**
+  - Floating emojis
+  - Smooth transitions using Framer Motion
+  - Cute kawaii buttons
 
-- 🖼️ **Photo Gallery**  
-  Showcases memorable moments using static images.
+- 💖 **Valentine Dashboard**
+  - Personalized content
+  - Clean, themed design
 
-- 💾 **Persistent State**  
-  Quiz progress and answers are saved using `localStorage`.
+- ⚡ **100% Frontend-Only**
+  - No backend
+  - No APIs
+  - No environment variables
+  - Uses local state and localStorage
 
-- 🎨 **Themed UI**  
-  Soft pink gradients, animations, and smooth transitions.
+- 🚀 **Deployed with GitHub Actions**
+  - Automatic build & deploy on every push
+  - Hosted on GitHub Pages
 
 ---
 
 ## 🛠 Tech Stack
 
 **Frontend**
-- React (Vite)
-- TypeScript
+- React + TypeScript
+- Vite
 - Tailwind CSS
 - Framer Motion
-- Shadcn/UI
+- Wouter (routing)
+- Canvas Confetti
 
-**State & Routing**
-- React Hooks
-- Local Storage
-- Wouter
+**Tooling**
+- GitHub Actions (CI/CD)
+- GitHub Pages (Hosting)
+
 
