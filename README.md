@@ -54,7 +54,4 @@ The app features a playful proposal page, floating emojis, confetti animations, 
 - GitHub Actions (CI/CD)
 - GitHub Pages (Hosting)
 
----
-
-## 📁 Project Structure
 
