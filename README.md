@@ -1,48 +1,49 @@
-# Valentine's Relationship App 💖
+# 💖 Valentine’s Relationship Web App
 
-A cute and interactive web application for celebrating relationships, featuring a countdown, personal letter, photo gallery, and relationship quiz.
+A cute and interactive **frontend-only web application** designed to celebrate relationships.  
+The app features a Valentine’s Day countdown, a fun relationship quiz, a personalized love letter, and a photo gallery — all wrapped in a soft, romantic UI.
 
-## Features
-- **Countdown to Valentine's Day**: Real-time timer.
-- **Interactive Quiz**: Test how well you know each other with cute questions.
-- **Personalized Letter**: A heartfelt message display.
-- **Photo Gallery**: A space for your favorite memories.
-- **Themed UI**: Soft pink gradients, floating emojis, and cute animations.
+> ⚡ This project is **100% frontend-only** and fully compatible with **GitHub Pages** and other static hosting platforms.
 
-## How to Run Locally
+---
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [npm](https://www.npmjs.com/) (usually comes with Node.js)
+## ✨ Features
 
-### Setup Instructions
-1. **Clone or Download the Project**
-   Download the source code to your local machine.
+- ⏳ **Valentine’s Day Countdown**  
+  Real-time countdown timer to February 14.
 
-2. **Install Dependencies**
-   Open your terminal in the project root directory and run:
-   ```bash
-   npm install
-   ```
+- 💌 **Personalized Love Letter**  
+  Displays a heartfelt message using local state.
 
-3. **Set Up Environment Variables**
-   Create a `.env` file in the root directory and add a session secret:
-   ```env
-   SESSION_SECRET=your_random_secret_here
-   ```
+- 🧠 **Interactive Relationship Quiz**  
+  Cute questions with score tracking and progress persistence.
 
-4. **Start the Development Server**
-   Run the following command to start both the backend and frontend:
-   ```bash
-   npm run dev
-   ```
+- 🖼️ **Photo Gallery**  
+  Showcases memorable moments using static images.
 
-5. **Access the App**
-   Open your browser and navigate to:
-   `http://localhost:5000`
+- 💾 **Persistent State**  
+  Quiz progress and answers are saved using `localStorage`.
 
-## Tech Stack
-- **Frontend**: React, Vite, Tailwind CSS, Framer Motion, Shadcn/UI
-- **Backend**: Express.js
-- **State Management**: TanStack Query
-- **Routing**: Wouter
+- 🎨 **Themed UI**  
+  Soft pink gradients, animations, and smooth transitions.
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend**
+- React (Vite)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Shadcn/UI
+
+**State & Routing**
+- React Hooks
+- Local Storage
+- Wouter
+
+---
+
+## 📁 Project Structure
+
