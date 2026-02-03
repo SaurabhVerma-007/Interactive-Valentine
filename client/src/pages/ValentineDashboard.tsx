@@ -5,7 +5,7 @@ import { KawaiiButton } from "@/components/KawaiiButton";
 import { cn } from "@/lib/utils";
 import memory1 from "@/assets/memories/photo1.jpeg";
 import memory2 from "@/assets/memories/photo2.jpeg";
-
+import memory3 from "@/assets/memories/photo3.jpeg";
 
 
 const QUIZ_STATE_KEY = "valentine_quiz_state";
@@ -448,7 +448,11 @@ function PhotoGalleryCard() {
     },
     {
       url: memory2,
-      caption: "Love letters 💌",
+      caption: "I Love You 💌",
+    },
+    {
+      url: memory3,
+      caption: "Our memories 📸",
     },
   ];
 
